@@ -121,7 +121,6 @@ if(searchType==="do-what-it-says")
 {
     fs.readFile("random.txt","utf-8",function(err,data){
         if (err) {
-            wait=false;
             return console.log(err);
         }
         searchType = data.substring(0,data.indexOf(','));
