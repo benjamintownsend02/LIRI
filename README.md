@@ -5,19 +5,19 @@ When running the app, the user's first command line argument is taken as the typ
 Valid search types are:
 1. "spotify-this-song" : searches using Spotify for a song name and logs artist, song name, preview url, and album name.
 Example:
-![alt text](screenshots/spotify.png)
+![alt text](../screenshots/spotify.png)
 
 2.  "concert-this": searches using the Bands in Town Artist Events API for an artist and logs the venue name, location, and event date of the next event. 
 Example:
-![alt text](screenshots/concert.png)
+![alt text](../screenshots/concert.png)
 
 3. "movie-this" : searches using the OMBD API for a movie title and logs the movie's title, year, IMDB rating, Rotten Tomatoes rating, country, language, plot summary, and actor list.
 Example:
-![alt text](screenshots/movie.png)
+![alt text](../screenshots/movie.png)
 
 4. "do-what-it-says" : reads the random.txt file and takes the string values before and after the first comma as the search type and search term, then logs the appropriate results (i.e. it performs one of the search types 1-3).
 Example:
-![alt text](screenshots/do-what.png)
+![alt text](../screenshots/do-what.png)
 
 Failure to enter a search term results in results being returned for a default term (e.g. the singer celine dion).
 
