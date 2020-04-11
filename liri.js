@@ -1,3 +1,4 @@
+//Dependencies
 require("dotenv").config();
 var keys = require("./keys.js");
 var fs = require('fs');
@@ -10,7 +11,7 @@ var spotify = new Spotify(keys.spotify);
 var searchType=process.argv[2];
 var searchTerm=process.argv.slice(3).join(" ");
 
-
+//Manages the different types of searches
 function search(searchType, searchTerm){
     if(searchType==="concert-this")
     {
@@ -113,7 +114,6 @@ function search(searchType, searchTerm){
         //console.log("Language: " + result.Language);
         //console.log("Plot: " + result.Plot);
         //console.log("Actors: " + result.Actors);
-        //console.log("HERE");
         var outputString="\n" +"------------------------------" + "\n" 
                         + "Search: " + searchType + " " + searchTerm + "\n" 
                         + "Title: " + result.Title + "\n"
@@ -146,6 +146,7 @@ function search(searchType, searchTerm){
   }
 }
 
+//Appends search output to log.txt
 function appendLog(outputString){
   fs.appendFile("log.txt", outputString, function(err) {
     if (err) {
@@ -155,8 +156,11 @@ function appendLog(outputString){
   });
 }
 
-if(searchType==="do-what-it-says")
+//Runs search() function with appropriate search type and term
+function main()
 {
+  if(searchType==="do-what-it-says")
+  {
     fs.readFile("random.txt","utf-8",function(err,data){
         if (err) {
             return console.log(err);
@@ -165,9 +169,12 @@ if(searchType==="do-what-it-says")
         searchTerm = data.substring(data.indexOf(',')+2,data.length-1);
         search(searchType, searchTerm);
     });
-}
-else
-{
+  }
+  else
+  {
     search(searchType, searchTerm);
+  }
 }
+
+main();
 

@@ -75,3 +75,36 @@ Search: concert-this
 Venue Name: Hallenstadion
 Venue Location: Zürich, Switzerland
 Event Date: 06/02/2020
+------------------------------
+Search: concert-this 
+Venue Name: Hallenstadion
+Venue Location: Zürich, Switzerland
+Event Date: 06/02/2020
+------------------------------
+Search: movie-this forrest gump
+Title: Forrest Gump
+Release Year: 1994
+Preview URL: undefined
+IMDB Rating: 8.8
+Rotten Tomatoes Rating: 70%
+Country: USA
+Language: English
+Plot: The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.
+Actors: Tom Hanks, Rebecca Williams, Sally Field, Michael Conner Humphreys
+------------------------------
+Search: movie-this 
+Title: Mr. Nobody
+Release Year: 2009
+Preview URL: undefined
+IMDB Rating: 7.8
+Rotten Tomatoes Rating: 67%
+Country: Belgium, Germany, Canada, France, UK, Luxembourg
+Language: English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+------------------------------
+Search: spotify-this-song crash
+Artist(s): Dave Matthews Band
+Song Name: Crash into Me
+Preview URL: https://p.scdn.co/mp3-preview/acd547cb5d76704d2b7dfc2cdcd6b270c95afe75?cid=1fadac13e05640e78b1c1608d5a834a7
+Album: Crash
