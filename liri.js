@@ -11,7 +11,7 @@ var searchType=process.argv[2];
 var searchTerm=process.argv.slice(3).join(" ");
 
 
-function search(searchType, SearchTerm){
+function search(searchType, searchTerm){
     if(searchType==="concert-this")
     {
         var artist="celine+dion";
@@ -23,9 +23,16 @@ function search(searchType, SearchTerm){
         axios.get(bandURL).then(
         function(response) {
         var result = response.data[0];
-        console.log("Venue Name: " + result.venue.name);
-        console.log("Venue Location: " + result.venue.city + ", " + result.venue.country);
-        console.log("Event Date: " + moment(result.datetime).format("MM/DD/YYYY"));
+        var outputString="\n" +"------------------------------" + "\n" 
+                          + "Search: " + searchType + " " + searchTerm + "\n" 
+                          + "Venue Name: " + result.venue.name + "\n"
+                          + "Venue Location: " + result.venue.city + ", " + result.venue.country + "\n"
+                          + "Event Date: " + moment(result.datetime).format("MM/DD/YYYY");
+        //console.log("Venue Name: " + result.venue.name);
+        //console.log("Venue Location: " + result.venue.city + ", " + result.venue.country);
+        //console.log("Event Date: " + moment(result.datetime).format("MM/DD/YYYY"));
+        console.log(outputString);
+        appendLog(outputString);
         })
         .catch(function(error) {
         if (error.response) {
@@ -62,11 +69,19 @@ function search(searchType, SearchTerm){
         {
             artistString = artistString + result.artists[i].name + ", ";
         }
-        artistString.substring(0,artistString.length-2);
-        console.log("Artist(s): " + artistString);
-        console.log("Song Name: " + result.name);
-        console.log("Preview URL: " + result.preview_url);
-        console.log("Album: " + result.album.name);
+        artistString=artistString.substring(0,artistString.length-2);
+        var outputString="\n" + "------------------------------" + "\n" 
+                        + "Search: " + searchType + " " + searchTerm + "\n" 
+                        + "Artist(s): " + artistString + "\n"
+                        + "Song Name: " + result.name + "\n"
+                        + "Preview URL: " + result.preview_url + "\n"
+                        + "Album: " + result.album.name;
+        //console.log("Artist(s): " + artistString);
+        //console.log("Song Name: " + result.name);
+        //console.log("Preview URL: " + result.preview_url);
+        //console.log("Album: " + result.album.name);
+        console.log(outputString);
+        appendLog(outputString);
         });
     }
     else if(searchType==="movie-this")
@@ -82,9 +97,9 @@ function search(searchType, SearchTerm){
         axios.get(movieURL).then(
         function(response) {
         var result=response.data;
-        console.log("Title: " + result.Title);
-        console.log("Release Year: " + result.Year);
-        console.log("IMDB Rating: " + result.imdbRating);
+        //console.log("Title: " + result.Title);
+        //console.log("Release Year: " + result.Year);
+        //console.log("IMDB Rating: " + result.imdbRating);
         var tomatoString="N/A";
         for(var i=0; i<result.Ratings.length; i++)
         {
@@ -93,11 +108,25 @@ function search(searchType, SearchTerm){
                 tomatoString=result.Ratings[i].Value;
             }
         }
-        console.log("Rotten Tomatoes Rating: " + tomatoString);
-        console.log("Country: " + result.Country);
-        console.log("Language: " + result.Language);
-        console.log("Plot: " + result.Plot);
-        console.log("Actors: " + result.Actors);
+        //console.log("Rotten Tomatoes Rating: " + tomatoString);
+        //console.log("Country: " + result.Country);
+        //console.log("Language: " + result.Language);
+        //console.log("Plot: " + result.Plot);
+        //console.log("Actors: " + result.Actors);
+        //console.log("HERE");
+        var outputString="\n" +"------------------------------" + "\n" 
+                        + "Search: " + searchType + " " + searchTerm + "\n" 
+                        + "Title: " + result.Title + "\n"
+                        + "Release Year: " + result.Year + "\n"
+                        + "Preview URL: " + result.preview_url + "\n"
+                        + "IMDB Rating: " + result.imdbRating + "\n"
+                        + "Rotten Tomatoes Rating: " + tomatoString + "\n"
+                        + "Country: " + result.Country + "\n"
+                        + "Language: " + result.Language + "\n"
+                        + "Plot: " + result.Plot + "\n"
+                        + "Actors: " + result.Actors;
+        console.log(outputString);
+        appendLog(outputString);
     })
     .catch(function(error) {
     if (error.response) {
@@ -115,6 +144,15 @@ function search(searchType, SearchTerm){
     console.log(error.config);
     });
   }
+}
+
+function appendLog(outputString){
+  fs.appendFile("log.txt", outputString, function(err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log("log.txt was updated!");
+  });
 }
 
 if(searchType==="do-what-it-says")

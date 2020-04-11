@@ -19,6 +19,8 @@ Example:
 Example:  
 ![alt text](https://github.com/benjamintownsend02/LIRI/blob/master/screenshots/do-what.PNG)
 
+The search and its output is printed to console and appended to log.txt.
+
 Failure to enter a search term results in results being returned for a default term (e.g. the singer celine dion).
 
 ## Dependencies
@@ -34,8 +36,6 @@ Additionally, the user must currently provide a .env file with valid spotify ID 
 
 ## Other Information
 Version: 1.0
-
-Planned Improvements: .txt file output logging to log.txt (currently unused)
 
 Author: benjamintownsend02
 
